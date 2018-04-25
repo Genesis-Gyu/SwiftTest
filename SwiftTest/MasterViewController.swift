@@ -13,6 +13,7 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
+    var sum = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,15 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        var count = 0;
+        for row in 5...10 {
+            count += 1
+            self.sum += row
+        }
+        
+        NSLog("총합은 %d, %d회 실행되었습니다", sum,count)
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
